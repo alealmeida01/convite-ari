@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Despedida de Solteira da Arii 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fdf6ec;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      padding: 2rem 1rem;
+    }
+
+    .scene {
+      width: 340px;
+      max-width: 100%;
+    }
+
+    /* ===== COVER ===== */
+    #cover {
+      background: #f5ede0;
+      border-radius: 24px;
+      border: 3px solid #c8a96e;
+      padding: 2rem 1.5rem 2.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      position: relative;
+    }
+    #cover:hover { transform: scale(1.02); }
+
+    .corner-emoji {
+      position: absolute;
+      font-size: 1.5rem;
+    }
+    .corner-emoji.tl { top: 10px; left: 10px; }
+    .corner-emoji.tr { top: 10px; right: 10px; }
+    .corner-emoji.bl { bottom: 10px; left: 10px; }
+    .corner-emoji.br { bottom: 10px; right: 10px; }
+
+    .cover-deco {
+      font-size: 2rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .cover-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: #e07b39;
+      margin-bottom: 1.5rem;
+    }
+
+    .envelope-wrap {
+      display: inline-block;
+      margin: 0.5rem 0 1.5rem;
+    }
+
+    .envelope {
+      width: 160px;
+      height: 110px;
+      background: #e8dcc8;
+      border-radius: 6px;
+      border: 2px solid #b89a6a;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 55px;
+      background: #d4c4a8;
+      clip-path: polygon(0 0, 50% 60%, 100% 0);
+      border-radius: 6px 6px 0 0;
+    }
+    .envelope::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55px;
+      background: #e0d0b8;
+      clip-path: polygon(0 100%, 50% 40%, 100% 100%);
+      border-radius: 0 0 6px 6px;
+    }
+
+    .seal {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(circle at 40% 35%, #f0c040, #c8940a);
+      border-radius: 50%;
+      z-index: 2;
+      position: relative;
+      border: 2px solid #a07800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .cover-hint {
+      font-size: 0.85rem;
+      color: #9a7a55;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ===== CARD ===== */
+    #card {
+      display: none;
+      background: #f5ede0;
+      border-radius: 24px;
+      border: 3px solid #c8a96e;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      animation: openCard 0.5s ease;
+    }
+    @keyframes openCard {
+      from { opacity: 0; transform: scale(0.85) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .card-header {
+      background: #e07b39;
+      padding: 1rem;
+      text-align: center;
+    }
+    .card-header p {
+      font-size: 0.8rem;
+      color: #ffe0c0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .card-header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: #fff8f0;
+      line-height: 1.2;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+    }
+
+    .card-body {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .deco-row {
+      text-align: center;
+      font-size: 1.5rem;
+      letter-spacing: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 0.78rem;
+      color: #9a6a38;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .info-block {
+      background: #fff3e6;
+      border-radius: 16px;
+      border: 2px dashed #e0a060;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+    }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-icon {
+      font-size: 1.3rem;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .info-text {
+      font-size: 0.95rem;
+      color: #5a3a18;
+      font-weight: 700;
+    }
+    .info-sub {
+      font-size: 0.8rem;
+      color: #9a6a38;
+      font-weight: 400;
+    }
+
+    .has-block { margin-bottom: 1rem; }
+    .has-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #e07b39;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .has-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .has-pill {
+      background: #e07b39;
+      color: #fff8f0;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .footer-msg {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      color: #e07b39;
+      margin-top: 0.25rem;
+    }
+    .footer-deco {
+      text-align: center;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      margin-top: 0.5rem;
+    }
+
+    .back-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.6rem;
+      background: transparent;
+      border: 1.5px solid #c8a96e;
+      border-radius: 12px;
+      color: #9a7a55;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .back-btn:hover { background: #f0dfc0; }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+
+    <!-- CAPA -->
+    <div id="cover" onclick="openInvite()">
+      <span class="corner-emoji tl">🌺</span>
+      <span class="corner-emoji tr">🍹</span>
+      <span class="corner-emoji bl">🎉</span>
+      <span class="corner-emoji br">🌿</span>
+
+      <div class="cover-deco">🎊 ✨ 🎊</div>
+      <div class="cover-title">Convite Especial</div>
+
+      <div class="envelope-wrap">
+        <div class="envelope">
+          <div class="seal">💛</div>
+        </div>
+      </div>
+
+      <div class="cover-hint">👆 Toque para abrir</div>
+    </div>
+
+    <!-- CONVITE -->
+    <div id="card">
+      <div class="card-header">
+        <p>Anota aí! ✨</p>
+        <h1>Despedida de Solteira da Arii</h1>
+      </div>
+
+      <div class="card-body">
+        <div class="deco-row">🌺 🍹 🎉 🌿 🪭</div>
+
+        <p class="subtitle">
+          Enquanto não vira feriado nacional, a gente comemora como se fosse!
+        </p>
+
+        <div class="info-block">
+          <div class="info-row">
+            <span class="info-icon">📅</span>
+            <div>
+              <div class="info-text">26 de Setembro — 14h00</div>
+              <div class="info-sub">Sábado</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">📍</span>
+            <div>
+              <div class="info-text">Rua Gonçalves Dias, 135</div>
+              <div class="info-sub">Vila Açoreana, Poá — SP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="has-block">
+          <div class="has-title">O que vai ter 🥳</div>
+          <div class="has-list">
+            <span class="has-pill">🍲 Feijoada</span>
+            <span class="has-pill">👯 Amigos</span>
+            <span class="has-pill">🎵 Música boa</span>
+            <span class="has-pill">💬 Conversa fiada</span>
+          </div>
+        </div>
+
+        <div class="footer-msg">Te esperamos lá! 🥂</div>
+        <div class="footer-deco">🌺 🎊 🌺</div>
+
+        <button class="back-btn" onclick="closeInvite()">← Fechar convite</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function openInvite() {
+      document.getElementById('cover').style.display = 'none';
+      document.getElementById('card').style.display = 'block';
+    }
+    function closeInvite() {
+      document.getElementById('card').style.display = 'none';
+      document.getElementById('cover').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
